@@ -6,7 +6,7 @@ function calculateBonusPoints(input) {
 
     if (points <= 100) {
         bonus = 5;
-    } else if (points < 1000) {
+    } else if (points <= 1000) {
         bonus = points * 0.2;
     } else {
         bonus = points * 0.1;
