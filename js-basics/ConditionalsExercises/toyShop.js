@@ -1,20 +1,35 @@
 function calculate(input) {
     let tripPrice = Number(input[0]);
-    let puzzles = Number(input[1]);
-    let dolls = Number(input[2]);
-    let teddies = Number(input[3]);
-    let minions = Number(input[4]);
-    let trucks = Number(input[5]);
+    let puzzleCount = Number(input[1]);
+    let dollCount = Number(input[2]);
+    let teddyBearCount = Number(input[3]);
+    let minionCount = Number(input[4]);
+    let truckCount = Number(input[5]);
 
-    let totalItems = puzzles + dolls + teddies + minions + trucks;
-    let totalSales =
-        puzzles * 2.6 + dolls * 3 + teddies * 4.1 + minions * 8.2 + trucks * 2;
+    let totalCount =
+        puzzleCount + dollCount + teddyBearCount + minionCount + truckCount;
 
-    if (totalItems >= 50) {
-        totalSales *= 0.75;
+    let totalPuzzlePrice = puzzleCount * 2.6;
+    let totalDollPrice = dollCount * 3;
+    let totalTeddyBearPrice = teddyBearCount * 4.1;
+    let totalMinionPrice = minionCount * 8.2;
+    let totalTruckPrice = truckCount * 2;
+
+    let totalPrice =
+        totalPuzzlePrice +
+        totalDollPrice +
+        totalTeddyBearPrice +
+        totalMinionPrice +
+        totalTruckPrice;
+
+    if (totalCount >= 50) {
+        let discount = totalPrice * 0.25;
+        totalPrice -= discount;
     }
 
-    let finalAmount = totalSales - totalSales * 0.1;
+    let rentPrice = totalPrice * 0.1;
+    let finalAmount = totalPrice - rentPrice;
+
     let diff = Math.abs(finalAmount - tripPrice);
 
     if (finalAmount >= tripPrice) {
