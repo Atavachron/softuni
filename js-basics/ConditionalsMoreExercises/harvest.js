@@ -5,7 +5,9 @@ function calculateWineOutput(input) {
     let workerCount = Number(input[3]);
 
     let totalGrapesHarvest = vineyardArea * grapesHarvestPerSqM;
+    //40% of the grapes will be used to make wine
     let grapesForWine = totalGrapesHarvest * 0.4;
+    //2.5 kg of grapes are used to produce a liter of wine
     let wineProduced = grapesForWine / 2.5;
 
     let diff = Math.abs(litresWineNeeded - wineProduced);
