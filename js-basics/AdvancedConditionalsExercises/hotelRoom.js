@@ -22,20 +22,17 @@ function calculatePrice(input) {
             break;
     }
 
-    if (month === 'May' || month === 'October') {
-        if (nights > 14) {
-            studioPrice *= 0.7;
-        } else if (nights > 7) {
-            studioPrice *= 0.95;
-        }
-    } else if (month === 'June' || month === 'September') {
-        if (nights > 14) {
-            studioPrice *= 0.8;
-        }
-    }
-
     if (nights > 14) {
         apartmentPrice *= 0.9;
+        if (month === 'May' || month === 'October') {
+            studioPrice *= 0.7;
+        } else if (month === 'June' || month === 'September') {
+            studioPrice *= 0.8;
+        }
+    } else if (nights > 7) {
+        if (month === 'May' || month === 'October') {
+            studioPrice *= 0.95;
+        }
     }
 
     let totalApartmentPrice = apartmentPrice * nights;
