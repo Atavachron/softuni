@@ -6,4 +6,4 @@ function logNumbersNTo1(input) {
     }
 }
 
-logNumbersNTo1('5');
+logNumbersNTo1(['5']);
