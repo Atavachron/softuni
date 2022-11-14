@@ -6,4 +6,12 @@ function logNumbersEndingIn7() {
     }
 }
 
+// Alternative solution
+
+// function logNumbersEndingIn7() {
+//     for (i = 7; i <= 1000; i += 10) {
+//         console.log(i);
+//     }
+// }
+
 logNumbersEndingIn7();
