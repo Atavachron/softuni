@@ -5,7 +5,7 @@ function giveOscar(input) {
     let totalPoints = academyPoints;
 
     for (let i = 3; i < input.length; i += 2) {
-        let judgeNameLength = Number(input[i].length);
+        let judgeNameLength = input[i].length;
         let judgePoints = Number(input[i + 1]);
         let pointsAwarded = (judgeNameLength * judgePoints) / 2;
         totalPoints += pointsAwarded;
