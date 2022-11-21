@@ -7,6 +7,7 @@ function getMaxNumber(input) {
 
     while (command !== 'Stop') {
         let currentNum = Number(command);
+
         if (currentNum > maxNum) {
             maxNum = currentNum;
         }
