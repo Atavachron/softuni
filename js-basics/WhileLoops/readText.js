@@ -4,6 +4,7 @@ function readText(input) {
 
     while (command !== 'Stop') {
         console.log(command);
+
         index++;
         command = input[index];
     }
