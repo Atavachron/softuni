@@ -18,4 +18,4 @@ function readPassword(input) {
     console.log(`Welcome ${user}!`);
 }
 
-readPassword(['Nakov', '1234', 'Pass', '1324', '1334']);
+readPassword(['Nakov', '1234', 'Pass', '1324', '1234']);
