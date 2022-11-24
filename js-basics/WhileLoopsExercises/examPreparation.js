@@ -3,6 +3,8 @@ function getAverageScore(input) {
     let problemsSolved = 0;
     let totalScore = 0;
     let poorGrades = 0;
+    let currentProblem;
+    let needsBreak = false;
 
     let poorGradesAllowed = Number(input[index]);
     index++;
@@ -11,10 +13,33 @@ function getAverageScore(input) {
     index++;
 
     while (command !== 'Enough') {
-        if (poorGradesAllowed === poorGrades) {
-            console.log(`You need a break, ${poorGrades} poor grades.`);
-            break;
+        currentProblem = command;
+        let currentScore = Number(input[index]);
+        index++;
+
+        totalScore += currentScore;
+        problemsSolved++;
+
+        if (currentScore <= 4) {
+            poorGrades++;
+            if (poorGrades === poorGradesAllowed) {
+                needsBreak = true;
+                break;
+            }
         }
+
+        command = input[index];
+        index++;
+    }
+
+    let averageScore = totalScore / problemsSolved;
+
+    if (!needsBreak) {
+        console.log(`Average score: ${averageScore.toFixed(2)}`);
+        console.log(`Number of problems: ${problemsSolved}`);
+        console.log(`Last problem: ${currentProblem}`);
+    } else {
+        console.log(`You need a break, ${poorGradesAllowed} poor grades.`);
     }
 }
 
