@@ -20,14 +20,17 @@ function calculateAmount(input) {
         if (command === 'spend') {
             spendDaysCount++;
             total -= Number(input[index]);
+
+            if (total < 0) total = 0;
             index++;
 
             if (spendDaysCount >= 5) {
                 console.log("You can't save the money.");
                 console.log(`${totalDaysCount}`);
-                return;
+                break;
             }
         } else if (command === 'save') {
+            spendDaysCount = 0;
             total += Number(input[index]);
             index++;
         }
@@ -35,21 +38,23 @@ function calculateAmount(input) {
         command = input[index];
         index++;
     }
-    console.log(`You saved the money for ${totalDaysCount} days.`);
+
+    if (total >= moneyNeeded) {
+        console.log(`You saved the money for ${totalDaysCount} days.`);
+    }
 }
 
-calculateAmount(['2000', '1000', 'spend', '1200', 'save', '2000']);
+// calculateAmount(['2000', '1000', 'spend', '1200', 'save', '2000']);
+
 calculateAmount([
-    '110',
-    '60',
+    '250',
+    '150',
     'spend',
-    '10',
+    '50',
     'spend',
-    '10',
-    'spend',
-    '10',
-    'spend',
-    '10',
-    'spend',
-    '10',
+    '50',
+    'save',
+    '100',
+    'save',
+    '100',
 ]);
