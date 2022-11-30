@@ -3,7 +3,7 @@ function findCodedMessage(input) {
     let command = input[index];
     index++;
 
-    let codedMessage = '';
+    let codedWord = '';
     let endResult = '';
 
     let nAppears = false;
@@ -18,29 +18,29 @@ function findCodedMessage(input) {
         ) {
             if (command === 'n') {
                 if (nAppears) {
-                    codedMessage += command;
+                    codedWord += command;
                 } else {
                     nAppears = true;
                 }
             } else if (command === 'o') {
                 if (oAppears) {
-                    codedMessage += command;
+                    codedWord += command;
                 } else {
                     oAppears = true;
                 }
             } else if (command === 'c') {
                 if (cAppears) {
-                    codedMessage += command;
+                    codedWord += command;
                 } else {
                     cAppears = true;
                 }
             } else {
-                codedMessage += command;
+                codedWord += command;
             }
 
             if (cAppears && nAppears && oAppears) {
-                endResult += codedMessage + ' ';
-                codedMessage = '';
+                endResult += codedWord + ' ';
+                codedWord = '';
                 oAppears = false;
                 nAppears = false;
                 cAppears = false;
