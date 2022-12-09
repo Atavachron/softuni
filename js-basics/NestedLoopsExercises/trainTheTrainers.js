@@ -1,6 +1,6 @@
 function solve(input) {
     let index = 0;
-    let juryCount = input[index];
+    let juryCount = Number(input[index]);
     index++;
     let command = input[index];
     index++;
