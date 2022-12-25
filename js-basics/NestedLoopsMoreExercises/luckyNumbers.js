@@ -1,3 +1,7 @@
+//Generate a list of four-digit lucky numbers based on the following conditions:
+//The sum of the first two digits must equal the sum of the last two digits
+//Ths input number must be divided by the sum of the first two digits with no remainder
+
 function generateLuckyNumbers(input) {
     let num = Number(input[0]);
 
