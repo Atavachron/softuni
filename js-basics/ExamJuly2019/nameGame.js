@@ -2,6 +2,7 @@ function solve(input) {
     let index = 0;
     let command = input[index];
     index++;
+
     let maxScore = 0;
     let winner = '';
 
