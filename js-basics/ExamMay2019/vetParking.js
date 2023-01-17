@@ -1,7 +1,6 @@
 function solve(input) {
     let days = Number(input[0]);
     let hoursPerDay = Number(input[1]);
-    let price;
     let total = 0;
 
     for (let i = 1; i <= days; i++) {
