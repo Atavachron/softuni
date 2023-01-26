@@ -1,20 +1,20 @@
 function condenseArrayToNumber(input) {
-    let currentArray = input;
+    let arr = input;
 
-    while (currentArray.length > 1) {
+    while (arr.length > 1) {
         let newArray = [];
 
-        for (let i = 0; i < currentArray.length - 1; i++) {
-            let firstElement = currentArray[i];
-            let secondElement = currentArray[i + 1];
+        for (let i = 0; i < arr.length - 1; i++) {
+            let firstElement = arr[i];
+            let secondElement = arr[i + 1];
 
             newArray.push(firstElement + secondElement);
         }
 
-        currentArray = newArray;
+        arr = newArray;
     }
 
-    console.log(currentArray[0]);
+    console.log(arr[0]);
 }
 
 condenseArrayToNumber([2, 10, 3]);
