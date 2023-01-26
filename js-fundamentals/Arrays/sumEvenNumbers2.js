@@ -3,7 +3,6 @@ function sumEvenNumbers(input) {
         input[i] = Number(input[i]);
     }
 
-    console.log(input);
     let sum = 0;
 
     for (const element of input) {
