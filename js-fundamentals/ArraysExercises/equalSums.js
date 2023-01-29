@@ -1,13 +1,13 @@
 function equalSums(arr) {
+    if (arr.length === 1) {
+        console.log(0);
+        return;
+    }
+
     let equalSumsFound = false;
     let indexFound = 0;
 
     for (let i = 0; i < arr.length; i++) {
-        if (arr.length === 1) {
-            console.log(0);
-            return;
-        }
-
         let leftSum = 0;
         let rightSum = 0;
 
