@@ -51,7 +51,7 @@ function flyLadybug(arr) {
                 newPosition = newPosition + jumpLength;
             }
             //If new position is within the field print 1
-            if (newPosition <= ladybugsArr.length) {
+            if (newPosition < ladybugsArr.length) {
                 ladybugsArr[newPosition] = 1;
             }
         } else {
