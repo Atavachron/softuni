@@ -1,70 +1,77 @@
-function flyLadybug(arr) {
-    let sizeOfField = arr[0];
-    let ladybugsPositions = arr[1].split(' ').map(Number);
-    let ladybugsArray = [];
+function flyLadybug(input) {
+    let fieldSize = input[0];
+    let indexesArray = input[1].split(' ');
+    let field = new Array(fieldSize).fill(0);
 
-    // fill the array with 0
-    for (let i = 0; i < sizeOfField; i++) {
-        ladybugsArray.push(0);
-    }
-    // mark starting ladybugs index
-    for (let i = 0; i < sizeOfField; i++) {
-        let ladybugIndex = ladybugsPositions[i];
-        if (ladybugIndex >= 0 && ladybugIndex < sizeOfField) {
-            ladybugsArray[ladybugIndex] = 1;
+    let index = 2;
+    let command = input[index];
+    index++;
+
+    for (let i = 0; i < indexesArray.length; i++) {
+        let flyIndex = Number(indexesArray[i]);
+        if (flyIndex < field.length) {
+            field[flyIndex] = 1;
         }
     }
 
-    for (let i = 2; i < arr.length; i++) {
-        // JS destructuring
-        let [ladybugIndex, command, jumpLength] = arr[i].split(' ');
-        ladybugIndex = +ladybugIndex;
-        jumpLength = +jumpLength;
+    while (command) {
+        let commandArray = command.split(' ');
 
-        if (
-            ladybugsArray[ladybugIndex] !== 1 ||
-            ladybugIndex < 0 ||
-            ladybugIndex >= ladybugsArray.length
-        ) {
-            continue;
-        }
-        // check for negative steps
-        if (jumpLength < 0) {
-            jumpLength = Math.abs(jumpLength);
-            if (command === 'right') {
-                command = 'left';
-            } else if (command === 'left') {
-                command = 'right';
+        let commandIndex = Number(commandArray[0]);
+        let direction = commandArray[1];
+        let steps = Number(commandArray[2]);
+
+        if (field[commandIndex]) {
+            if (direction === 'right') {
+                let originalIndex = commandIndex;
+                if (
+                    !field[commandIndex + steps] &&
+                    commandIndex < field.length &&
+                    commandIndex + steps < field.length
+                ) {
+                    field[commandIndex + steps] = 1;
+                } else {
+                    while (
+                        field[commandIndex + steps] &&
+                        commandIndex < field.length &&
+                        commandIndex + steps < field.length
+                    ) {
+                        field[commandIndex + steps] = 1;
+                        commandIndex += steps;
+                    }
+                }
+
+                field[originalIndex] = 0;
+            } else if (direction === 'left') {
+                let originalIndex = commandIndex;
+
+                if (
+                    !field[commandIndex - steps] &&
+                    commandIndex >= 0 &&
+                    commandIndex - steps >= 0
+                ) {
+                    field[commandIndex - steps] = 1;
+                } else {
+                    while (
+                        field[commandIndex - steps] &&
+                        commandIndex >= 0 &&
+                        commandIndex - steps >= 0
+                    ) {
+                        field[commandIndex - steps] = 1;
+                        commandIndex -= steps;
+                    }
+                }
+
+                field[originalIndex] = 0;
             }
         }
-        // Free Position
-        ladybugsArray[ladybugIndex] = 0;
-        if (command === 'right') {
-            // Ladybug jumps one time
-            let newPosition = ladybugIndex + jumpLength;
-            // Jump another time if there is a lady bug
-            if (ladybugsArray[newPosition] === 1) {
-                newPosition = newPosition + jumpLength;
-            }
-            if (newPosition <= ladybugsArray.length) {
-                ladybugsArray[newPosition] = 1;
-            }
-        } else {
-            // Lady bug jumps to the left
-            let newPosition = ladybugIndex - jumpLength;
-            // Jump another time if there is a lady bug
-            if (ladybugsArray[newPosition] === 1) {
-                newPosition = newPosition - jumpLength;
-            }
-            if (newPosition >= 0) {
-                ladybugsArray[newPosition] = 1;
-            }
-        }
+
+        command = input[index];
+        index++;
     }
 
-    console.log(ladybugsArray.join(' '));
+    console.log(field.join(' '));
 }
-
 flyLadybug([3, '0 1', '0 right 1', '2 right 1']);
 flyLadybug([3, '0 1 2', '0 right 1', '1 right 1', '2 right 1']);
 
