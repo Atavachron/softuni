@@ -36,7 +36,7 @@ function printSteamAccount(arr) {
                 let expansionGame = expansionArr[0];
                 let expansion = expansionArr[1];
 
-                if (accountArr[i].includes(expansionGame)) {
+                if (accountArr[i] === expansionGame) {
                     accountArr.splice(
                         i + 1,
                         0,
