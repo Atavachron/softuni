@@ -11,10 +11,12 @@ function checkIfMatrixIsMagical(arr) {
         let rowSum = 0;
         let colSum = 0;
 
+        //Calculate the sum of every row
         for (let j = 0; j < arr.length; j++) {
             rowSum += arr[i][j];
         }
 
+        //Calculate the sum of every column
         for (let k = 0; k < arr.length; k++) {
             colSum += arr[k][i];
         }
