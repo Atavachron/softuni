@@ -1,0 +1,22 @@
+function formatGrade(grade) {
+    let result;
+    if (grade < 3) {
+        result = 'Fail';
+    } else if (grade < 3.5) {
+        result = 'Poor';
+    } else if (grade < 4.5) {
+        result = 'Good';
+    } else if (grade < 5.5) {
+        result = 'Very good';
+    } else {
+        result = 'Excellent';
+    }
+
+    let gradeValueText = grade < 3 ? 2 : grade.toFixed(2);
+
+    console.log(`${result} (${gradeValueText})`);
+}
+
+formatGrade(3.33);
+formatGrade(4.5);
+formatGrade(2.99);
