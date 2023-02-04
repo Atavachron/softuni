@@ -1,7 +1,7 @@
 function repeatString(str, repeatCount) {
     let result = str.repeat(repeatCount);
-    console.log(result);
+    return result;
 }
 
-repeatString('abc', 3);
-repeatString('Sring', 2);
+console.log(repeatString('abc', 3));
+console.log(repeatString('Sring', 2));
