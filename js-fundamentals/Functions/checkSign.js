@@ -1,14 +1,10 @@
+//Do not multiply the arguments to find out the answer
+
 function checkSign(numOne, numTwo, numThree) {
     let positiveCount = 0;
 
-    if (checkIfPositive(numOne)) {
-        positiveCount++;
-    }
-    if (checkIfPositive(numTwo)) {
-        positiveCount++;
-    }
-    if (checkIfPositive(numThree)) {
-        positiveCount++;
+    for (let element of arguments) {
+        element > 0 ? positiveCount++ : null;
     }
 
     if (positiveCount === 1 || positiveCount === 3) {
@@ -16,8 +12,6 @@ function checkSign(numOne, numTwo, numThree) {
     }
 
     return 'Negative';
-
-    function checkIfPositive(num) {
-        return num >= 0;
-    }
 }
+
+console.log(checkSign(-1, -3, -4));
