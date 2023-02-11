@@ -10,9 +10,7 @@ function processArray(arr) {
         }
     }
 
-    for (let el of result) {
-        console.log(el);
-    }
+    return result.join('\n');
 }
 
 console.log(processArray(['7', '-2', '8', '9']));
