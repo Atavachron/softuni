@@ -1,12 +1,12 @@
 function guineaPig(input) {
-    let food = Number(input[0]);
-    let hay = Number(input[1]);
-    let cover = Number(input[2]);
-    let weight = Number(input[3]);
+    let food = Number(input[0]) * 1000;
+    let hay = Number(input[1]) * 1000;
+    let cover = Number(input[2] * 1000);
+    let weight = Number(input[3] * 1000);
     let hasToGoToStore = false;
 
     for (let i = 1; i <= 30; i++) {
-        food -= 0.3;
+        food -= 300;
 
         if (i % 2 === 0) {
             hay -= food * 0.05;
@@ -24,9 +24,11 @@ function guineaPig(input) {
 
     return hasToGoToStore
         ? `Merry must go to the pet store!`
-        : `Everything is fine! Puppy is happy! Food: ${food.toFixed(
+        : `Everything is fine! Puppy is happy! Food: ${(food / 1000).toFixed(
               2
-          )}, Hay: ${hay.toFixed(2)}, Cover: ${cover.toFixed(2)}.`;
+          )}, Hay: ${(hay / 1000).toFixed(2)}, Cover: ${(cover / 1000).toFixed(
+              2
+          )}.`;
 }
 
 console.log(guineaPig(['1', '1.5', '3', '1.5']));
