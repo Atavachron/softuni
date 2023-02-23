@@ -9,7 +9,7 @@ function manipulateArray(input) {
         arr = executeCommand(command, parameters, arr);
     }
 
-    return arr;
+    return arr.join(' ');
 
     function executeCommand(command, parameters, arr) {
         switch (command) {
