@@ -1,9 +1,9 @@
 function removeRepeatingElements(input) {
     let newArray = [];
 
-    for (let i = 0; i < input.length; i++) {
-        if (!newArray.includes(input[i])) {
-            newArray.push(input[i]);
+    for (let el of input) {
+        if (!newArray.includes(el)) {
+            newArray.push(el);
         }
     }
 
