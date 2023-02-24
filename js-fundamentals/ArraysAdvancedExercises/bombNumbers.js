@@ -1,9 +1,13 @@
 function bombNumbers(seq, bomb) {
     let [bombNum, bombPower] = bomb;
 
+    //Keep splicing until there are no more bombNum
     while (seq.includes(bombNum)) {
         seq.splice(
+            //Make sure that the starting index is not below zero
             Math.max(0, seq.indexOf(bombNum) - bombPower),
+
+            //Delete the following number of elements (double the power plus the bomb itself)
             bombPower * 2 + 1
         );
     }
