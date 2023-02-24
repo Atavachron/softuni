@@ -1,4 +1,4 @@
-//This solution will overwrite two employees with the same name
+//This solution will overwrite two employees with the same name as it creates only one object
 
 function createEmployeeList(input) {
     let obj = {};
