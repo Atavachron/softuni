@@ -1,3 +1,5 @@
+//This solution will overwrite two employees with the same name
+
 function createEmployeeList(input) {
     let obj = {};
 
