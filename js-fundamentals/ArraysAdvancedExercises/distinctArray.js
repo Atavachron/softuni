@@ -1,8 +1,3 @@
-// function removeRepeatingElements(arr) {
-//     let newArr = Array.from(new Set(arr));
-//     console.log(newArr);
-// }
-
 function removeRepeatingElements(input) {
     let newArray = [];
 
