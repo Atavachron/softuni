@@ -8,7 +8,7 @@ function createHeroInventory(input) {
         let [name, level, items] = el.split(' / ');
 
         //Create a her object
-        let hero = { name, level, items };
+        let hero = { name, level: Number(level), items };
 
         //Push the hero object to the array
         heroes.push(hero);
