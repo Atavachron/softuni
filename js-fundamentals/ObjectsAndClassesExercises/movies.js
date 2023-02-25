@@ -3,33 +3,24 @@ function movieDatabase(input) {
 
     for (let entry of input) {
         if (entry.includes('addMovie')) {
-            let arr = entry.split('addMovie ');
-            let movieName = arr[1];
+            let name = entry.split('addMovie ')[1];
 
-            let obj = {
-                name: movieName,
-            };
+            movieList.push({ name });
+        } else if (entry.includes('directedBy')) {
+            let [name, director] = entry.split(' directedBy ');
 
-            movieList.push(obj);
-        } else if (entry.includes(' directedBy ')) {
-            let arr = entry.split(' directedBy ');
-            let movieName = arr[0];
-            let director = arr[1];
+            let movie = movieList.find(el => el.name === name);
 
-            for (let obj of movieList) {
-                if (obj.name === movieName) {
-                    obj.director = director;
-                }
+            if (movie) {
+                movie.director = director;
             }
         } else if (entry.includes('onDate')) {
-            let arr = entry.split(' onDate ');
-            let movieName = arr[0];
-            let date = arr[1];
+            let [name, date] = entry.split(' onDate ');
 
-            for (let obj of movieList) {
-                if (obj.name === movieName) {
-                    obj.date = date;
-                }
+            let movie = movieList.find(el => el.name === name);
+
+            if (movie) {
+                movie.date = date;
             }
         }
     }
