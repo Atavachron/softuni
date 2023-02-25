@@ -1,27 +1,26 @@
 function storeProvision(currentStock, orderedProducts) {
     let products = {};
 
-    for (let i = 0; i < currentStock.length; i += 2) {
-        let product = currentStock[i];
-        let quantity = Number(currentStock[i + 1]);
+    addProduct(currentStock);
+    addProduct(orderedProducts);
 
-        products[product] = quantity;
-    }
-
-    for (let j = 0; j < orderedProducts.length; j += 2) {
-        let product = orderedProducts[j];
-        let quantity = Number(orderedProducts[j + 1]);
-
-        //or if (products.hasOwnProperty(product))
-        if (product in products) {
-            products[product] += quantity;
-        } else {
-            products[product] = quantity;
-        }
-    }
-
+    //Iterate over the object keys and console.log the key-value pairs
     for (let key of Object.keys(products)) {
         console.log(`${key} -> ${products[key]}`);
+    }
+
+    //Function that adds the products from the arrays to the products object
+    function addProduct(data) {
+        for (let i = 0; i < data.length; i += 2) {
+            let product = data[i];
+            let quantity = Number(data[i + 1]);
+
+            if (product in products) {
+                products[product] += quantity;
+            } else {
+                products[product] = quantity;
+            }
+        }
     }
 }
 
