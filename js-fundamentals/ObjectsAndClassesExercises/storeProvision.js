@@ -13,7 +13,7 @@ function storeProvision(currentStock, orderedProducts) {
         let quantity = Number(orderedProducts[j + 1]);
 
         //or if (products.hasOwnProperty(product))
-        if (products[product]) {
+        if (product in products) {
             products[product] += quantity;
         } else {
             products[product] = quantity;
