@@ -5,14 +5,14 @@ function revealWords(words, text) {
     for (let word of wordArr) {
         let censoredWord = '*'.repeat(word.length);
 
-        for (let i = 0; i < textArr.length; i++) {
-            if (textArr[i] === censoredWord) {
-                textArr[i] = word;
+        for (let el of textArr) {
+            if (el === censoredWord) {
+                text = text.replace(censoredWord, word);
             }
         }
     }
 
-    return textArr.join(' ');
+    return text;
 }
 
 console.log(
