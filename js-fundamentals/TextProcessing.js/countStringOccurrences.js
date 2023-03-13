@@ -1,8 +1,8 @@
-function countStringOccurrences(text, word) {
-    let arr = text.split(' ');
+function countStringOccurrences(text, searchedWord) {
+    let words = text.split(' ');
     let counter = 0;
-    for (let elem of arr) {
-        if (elem === word) {
+    for (let word of words) {
+        if (word === searchedWord) {
             counter++;
         }
     }
