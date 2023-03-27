@@ -4,7 +4,7 @@ function calculateSales(input) {
     let total = 0;
 
     for (let line of input) {
-        let match = [];
+        let match;
         if (line === 'end of shift') {
             break;
         }
