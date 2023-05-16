@@ -1,3 +1,10 @@
+// Write a function that finds the number of equal neighbor pairs inside a matrix of variable size and type (numbers or
+//     strings).
+//     The input comes as an array of arrays, containing string elements (2D matrix of strings).
+//     The output is the return value of your function. Save the number of equal pairs you find and return it.
+
+//Check the right and the bottom neighbour
+
 function solve(matrix) {
     let count = 0;
 
