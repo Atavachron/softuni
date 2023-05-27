@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <input type="text" id="firstNumber" value="13.33" disabled />
+            <input type="text" id="secondNumber" value="22.18" disabled />
+            <div id="result"></div>
+        </div>
+    </body>
+    <script>
+        function subtract() {
+            let num1 = Number(document.getElementById('firstNumber').value);
+            let num2 = Number(document.getElementById('secondNumber').value);
+            let result = num1 - num2;
+            document.getElementById('result').textContent = result;
+        }
+
+        subtract();
+    </script>
+</html>
