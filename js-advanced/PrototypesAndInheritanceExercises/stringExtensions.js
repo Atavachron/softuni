@@ -43,7 +43,7 @@
         return `${strValue.substr(0, n - 3)}${ELLIPSIS}`;
     };
 
-    String.prototype.format = function (string, ...params) {
+    String.format = function (string, ...params) {
         let str = string;
         for (let i = 0; i < params.length; i++) {
             let index = str.indexOf(`{${i}}`);
