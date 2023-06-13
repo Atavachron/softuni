@@ -7,7 +7,7 @@ function add(number) {
     };
 
     addNext.toString = function () {
-        return sum.toString();
+        return sum;
     };
 
     return addNext;
